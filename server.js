@@ -1,16 +1,17 @@
 const express = require('express')
 const app = express();
 const methodOverride = require('method-override');
-// const session = require('express-session');
+const session = require('express-session');
+require('dotenv').config()
 
-const PORT = 3000 //process.env.PORT
+const PORT = process.env.PORT
 
 const Toon = require('./models/toons')
 
 const mongoose = require('mongoose');
-const mongoURI = "mongodb://127.0.0.1:27017/toons"
+const mongoURI = process.env.MONGODB_URI
 const db = mongoose.connection;
-
+ 
 
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
