@@ -88,12 +88,12 @@ router.put('/:id', (req, res) => {
 
 //SEED 
 // router.get('/seed', async (req, res) => {
-//     const newProducts =
+//     const newtoons =
 //       [
 //         {
 //           name: 'Beans',
 //           description: 'A small pile of beans. Buy more beans for a big pile of beans.',
-//           img: 'https://cdn3.bigcommerce.com/s-a6pgxdjc7w/products/1075/images/967/416130__50605.1467418920.1280.1280.jpg?c=2',
+//           img: 'https://cdn3.bigcommerce.com/s-a6pgxdjc7w/toons/1075/images/967/416130__50605.1467418920.1280.1280.jpg?c=2',
 //           price: 5,
 //           qty: 99
 //         }, {
@@ -112,7 +112,7 @@ router.put('/:id', (req, res) => {
 //       ]
   
 //     try {
-//       const seedItems = await Product.create(newProducts)
+//       const seedItems = await Toon.create(newtoons)
 //       res.send(seedItems)
 //     } catch (err) {
 //       res.send(err.message)

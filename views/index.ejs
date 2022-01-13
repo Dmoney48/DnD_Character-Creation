@@ -7,6 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>Characters</h1>
+    <ul>
+        <% for (let i = 0; i < toons.length; i++){%>
+            <li>
+                <a href="/toons/<%= toons[i].id %>"><%= toons[i].name %></a>.</br>
+                <p>Description: <%= toons[i].description %>.</p>
+                <p>Price: $<%= toons[i].price %>.</p>
+                <% if(toons[i].qty > 0) { %>
+                    <p><%= toons[i].qty %> remaining.</p>
+                    <% } else { %>
+                    <p>OUT OF STOCK</p>
+                <% } %>
+                <a href="/toons/<%= toons[i].id %>/edit">Edit</a>
+                <form action="/toons/<%= toons[i]._id%>?_method=DELETE" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
+        <% } %>
+    </ul>
+    <a href="/toons/new">Enter a New Toon</a>
 </body>
 </html>
