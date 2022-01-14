@@ -1,7 +1,8 @@
 <%- include('./partials/header.ejs') %>
+
 <div class="main">
+    <div class="characterPage">
     <h1><%= toons.name %></h1>
-        <div>
             <div>
                 <img class="card-img-top1"src="<%= toons.img %>" alt="image"> 
             </div>
@@ -16,11 +17,10 @@
             <p>Charisma: <%= toons.charm %>.</p>
 
             <a href="/toons/<%= toons.id %>/edit">Edit</a>
-        </div>
-
         <form action="/toons/<%= toons._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete">
         </form>
         <button type="submit" disabled onclick="window.location.href='/toons/<%= toons.id %>'">Download as PDF!</button>
+    </div>
 </div>
 <%- include('./partials/footer.ejs')%>

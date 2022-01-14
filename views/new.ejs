@@ -1,5 +1,6 @@
 <%- include('./partials/header.ejs') %>
 <div class="main">
+    <div class="characterPage">
     <h1>New Character Page</h1>
     <form action="/toons" method="POST">
             Class: <input type="text" name="class" value="Choose Class"><br/>
@@ -21,5 +22,6 @@
            <input type="submit" value="Create Character">
         </form> 
     </form> 
+    </div>
 </div> 
 <%- include('./partials/footer.ejs')%>
