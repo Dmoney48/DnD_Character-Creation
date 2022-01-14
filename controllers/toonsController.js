@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 
 const router = express.Router();
 
@@ -7,6 +7,15 @@ const Toon = require('../models/toons');
 router.use(express.static('public'));//
 router.use(express.json());
 router.use(express.urlencoded({ extended: true }));
+
+
+const authRequired = (req, res, next) => {
+    if(req.session.currentUser) {
+        next()
+    } else {
+        res.send('You must be logged in to do that!')
+    }
+}
 
 // CONTROLLERS
 //INDEX
@@ -20,9 +29,9 @@ router.get('/', (req, res) => {
 })// fine
 
 //NEW
-router.get('/new', (req, res) => {
-    res.render('new.ejs'); //change to render
-}) //fine
+router.get('/new',authRequired, (req, res) => {
+    res.render('new.ejs');
+})//fine
 
 
 
@@ -69,7 +78,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 //EDIT
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', authRequired, (req, res) => {
     Toon.findById(req.params.id, (error, foundToons) => {
         if(error) {
             console.log(error);

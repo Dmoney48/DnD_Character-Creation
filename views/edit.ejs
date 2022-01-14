@@ -1,15 +1,24 @@
 <%- include('./partials/header.ejs') %>
+<div class="main">
     <h1>Edit Character Page</h1>
     <form action="/toons/<%= toons.id %>?_method=PUT" method="POST">
-        Class: <input type="text" name="class" value="<%= toons.name %>"><br/>
+        Class: <input type="text" name="class" value="<%= toons.class %>"><br/>
        Name: <input type="text" name="name" value="<%= toons.name %>"><br/>
        Description: <input type="text" name="description" value="<%= toons.description %>"><br/>
-       Price: <input type="text" name="price" value="<%= toons.price %>"><br/>
        Image: <input type="text" name="img" value="<%= toons.img %>"><br/>
-       QTY: <input type="text" name="qty" value="<%= toons.qty %>"><br/>
-    
+    <div>   
+        <h2>Stats 0-20</h2>
+        Strength: <input type="number" name="str" value="<%= toons.str%>"><br/>
+        Dexterity: <input type="number" name="dex" value="<%= toons.dex %>"><br/>
+        Constitution: <input type="number" name="con" value="<%= toons.con %>"><br/>
+        Intelligence: <input type="number" name="int" value="<%= toons.int %>"><br/>
+        Wisdom: <input type="number" name="wis" value="<%= toons.wis %>"><br/>
+        Charisma: <input type="number" name="charm" value="<%= toons.charm %>"><br/>
+    </div>
+       
     <br/>
 
-       <input type="submit" value="Edit product">
+       <input type="submit" value="Edit Character">
     </form> 
+</div>
 <%- include('./partials/footer.ejs')%>

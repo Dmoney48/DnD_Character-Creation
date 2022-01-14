@@ -2,4 +2,13 @@
     max-width: 150px;
     max-height: 150px;
 }
-
+.card-img-top1{
+    max-height: 500px;
+    max-width:  350px;
+}
+.main {
+    margin: auto;
+    width: 60%;
+    border: 5px solid #FFFF00;
+    padding: 10px;
+    }

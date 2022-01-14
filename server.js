@@ -10,6 +10,21 @@ const Toon = require('./models/toons')
 
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGODB_URI
+
+const SESSION_SECRET = process.env.SESSION_SECRET
+console.log('Here is the SESSION_SECRET');
+console.log(SESSION_SECRET)
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use((req, res, next) => {
+    res.locals.currentUser = req.session.currentUser
+    next()
+})
+
 const db = mongoose.connection;
  
 
@@ -33,6 +48,9 @@ const toonsController = require('./controllers/toonsController')
 
 app.use('/toons', toonsController)
 
+const userController = require('./controllers/usersController');
+
+app.use('/users', userController);
 
 
 app.listen(PORT, () => {

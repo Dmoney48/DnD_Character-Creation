@@ -36,7 +36,7 @@ router.post('/signin', (req, res) => {
             if(validLogin) {
                 console.log(foundUser);
                 req.session.currentUser = foundUser;
-                res.redirect('/fruits');
+                res.redirect('/toons');
             } else {
                 res.send('Invalid username or password')
             }
@@ -53,5 +53,7 @@ router.get('/signout', (req, res) => {
     req.session.destroy();
     res.redirect('/users/signin')
 })
+
+
 module.exports = router;
 

@@ -1,13 +1,25 @@
 <%- include('./partials/header.ejs') %>
+<div class="main">
     <h1>New Character Page</h1>
     <form action="/toons" method="POST">
-       Name: <input type="text" name="name"><br/>
-       Description: <input type="text" name="description"><br/>
-       Img: <input type="text" name="img"><br/>
-       Price: <input type="text" name="price"><br/>
-       Qty: <input type="text" name="qty"><br/>
-       <!-- Is Ready To Eat: <input type="checkbox" name="readyToEat"><br/> -->
-
-       <input type="submit" value="Create Character">
-    </form>  
+            Class: <input type="text" name="class" value="Choose Class"><br/>
+           Name: <input type="text" name="name" value="Name Here"><br/>
+           Description: <input type="text" name="description" value="Description Here"><br/>
+           Image: <input type="text" name="img" value="link to img here"><br/>
+        <div>   
+            <h2>Stats 0-20</h2>
+            Strength: <input type="number" name="str" value="0"><br/>
+            Dexterity: <input type="number" name="dex" value="0"><br/>
+            Constitution: <input type="number" name="con" value="0"><br/>
+            Intelligence: <input type="number" name="int" value="0"><br/>
+            Wisdom: <input type="number" name="wis" value="0"><br/>
+            Charisma: <input type="number" name="charm" value="0"><br/>
+        </div>
+           
+        <br/>
+    
+           <input type="submit" value="Create Character">
+        </form> 
+    </form> 
+</div> 
 <%- include('./partials/footer.ejs')%>
