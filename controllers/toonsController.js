@@ -4,6 +4,10 @@ const router = express.Router();
 
 const Toon = require('../models/toons');
 
+router.use(express.static('public'));//
+router.use(express.json());
+router.use(express.urlencoded({ extended: true }));
+
 // CONTROLLERS
 //INDEX
 router.get('/', (req, res) => {
@@ -35,13 +39,20 @@ router.post('/', (req, res) => {
             res.redirect('/toons');
         }
     })
-    // const productToAdd = {
-    //     name: req.body.name,
-    //     description: req.body.description,
-    //     img: req.body.img,
-    //     price: req.body.price,
-    //     qty: req.body.qty
-    // }
+
+    const toonToAdd = {
+        class: req.body.class,
+        name: req.body.name,
+        description: req.body.description,
+        img: req.body.img,
+        str: req.body.str,
+        dex: req.body.dex,
+        con: req.body.con,
+        int: req.body.int,
+        wis: req.body.wis,
+        charm: req.body.charm
+    }
+    
 })
 
 //DELETE
@@ -91,10 +102,10 @@ router.get('/seed', async (req, res) => {
     const newToons =
       [
         {
-        class: "Warrior",
+        class: "Fighter",
         name: "John Smith",
-        description: "A valiant fighter of unmatched strength",
-        img: "",
+        description: "A valiant warrior of unmatched strength",
+        img: "img/Male_Fighter.jpeg",
         str: 14,
         dex: 10,
         con: 17,
@@ -105,7 +116,7 @@ router.get('/seed', async (req, res) => {
         class: "Rogue",
         name: 'Dusty Bones',
         description: 'A shadowy figure with a stealthy approach',
-        img: "",
+        img: "img/Male_Rogue.webp",
         str: 12,
         dex: 18,
         con: 12,
@@ -116,7 +127,7 @@ router.get('/seed', async (req, res) => {
         class: "Sorcerer",
         name: 'Jaina Menethil',
         description: 'Sorceress Supreme, big attitude bigger spells',
-        img: "",
+        img: "img/Female_Sorcerer.jpeg",
         str: 6,
         dex: 9,
         con: 14,
@@ -133,6 +144,7 @@ router.get('/seed', async (req, res) => {
       res.send(err.message)
     }
   })
+
 
   //SHOW
 router.get('/:id', (req, res) => {

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const {Schema, model} = mongoose
 
 const toonSchema = new Schema({
+    class: String,
     name: String,
     description: String,
     img: String,

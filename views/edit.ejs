@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include('./partials/header.ejs') %>
+    <h1>Edit Character Page</h1>
+    <form action="/toons/<%= toons.id %>?_method=PUT" method="POST">
+        Class: <input type="text" name="class" value="<%= toons.name %>"><br/>
+       Name: <input type="text" name="name" value="<%= toons.name %>"><br/>
+       Description: <input type="text" name="description" value="<%= toons.description %>"><br/>
+       Price: <input type="text" name="price" value="<%= toons.price %>"><br/>
+       Image: <input type="text" name="img" value="<%= toons.img %>"><br/>
+       QTY: <input type="text" name="qty" value="<%= toons.qty %>"><br/>
     
-</body>
-</html>
+    <br/>
+
+       <input type="submit" value="Edit product">
+    </form> 
+<%- include('./partials/footer.ejs')%>
